@@ -11,6 +11,10 @@ dl {
     padding: 0;
 }
 
+.verde {
+    color: var(--color-secondary);
+}
+
 img {
     display: block;
     max-width: 100%;
