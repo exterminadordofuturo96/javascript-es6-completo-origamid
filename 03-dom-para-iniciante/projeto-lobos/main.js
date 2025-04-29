@@ -72,4 +72,92 @@ const ultimoUl = document.querySelector("a[href^=https]");
 
 ultimoUl.setAttribute("href", "https://www.google.com.br");
 console.log(ultimoUl);
+
+
+// Aula-306 - Exercícios
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
+const primeiraImagem = document.querySelector('img');
+console.log(primeiraImagem.offsetTop);
+
+
+// Retorne a soma da largura de todas as imagens
+function somaOnLoad() {
+    const todasImagens = document.querySelectorAll('img');
+    let somaLarguraImagens = 0;
+    todasImagens.forEach((elemento) => {
+        console.log(elemento.offsetWidth);
+        somaLarguraImagens += Number(elemento.offsetWidth);
+    })
+    console.log(`Soma das larguras:${somaLarguraImagens} pixels.`);
+};
+
+window.onload = function () {
+    somaOnLoad();
+};
+
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
+
+const linksPagina = document.querySelectorAll("a");
+
+linksPagina.forEach((link) => {
+    if (link.offsetWidth > '48px' && link.offsetHeight > '48px') {
+        console.log("Link passou no teste do google.")
+    } else {
+        console.log("Link não passou no teste do google!!   ")
+    }
+});
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+
+const menu = document.querySelector('.menu');
+const small = window.matchMedia('(max-width:720px)');
+if (small.matches) {
+    menu.classList.add('menu-mobile');
+}
 */
+
+//Aula - 307 - Eventos - Exercícios
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
+const linksInternos = document.querySelectorAll("a");
+function handleClick(event) {
+    event.preventDefault();
+    let linkClicado = event.target;
+    linkCiclado.classList.add
+};
+addEventListener("click", handleClick);
+
+
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+const bodySelect = document.querySelector('body *');
+function handleClick(event) {
+    console.log(event.target);
+}
+bodySelect.addEventListener("click", handleClick)
+
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
+/*function handleClickRemove(event) {
+    let element = event.target;
+    element.remove();
+}
+bodySelect.addEventListener("click", handleClickRemove)*/
+
+// Se o usuário clicar na tecla (t), aumente todo o texto do site. 
+const textos = document.querySelectorAll("p");
+function handleKeyT(event) {
+    console.log(event);
+    if (event.key === "t" && event.returnValeu === false) {
+        textos.forEach((texto) => {
+            texto.classList.add('texto-grande');
+        })
+    }
+}
+
+addEventListener("keydown", handleKeyT)
